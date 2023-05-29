@@ -5,7 +5,18 @@ const c = canvas.getContext('2d');
 canvas.width = 64 * 16; // 1024
 canvas.height = 64 * 9; // 576
 
-const player = new Player()
+const player = new Player();
+const keys = {
+    w: {
+        pressed: false,
+    },
+    a: {
+        pressed: false,
+    },
+    d: {
+        pressed: false,
+    }
+}
 
 // let bottom = y + 100;
 function animate() {
@@ -13,6 +24,11 @@ function animate() {
     c.fillStyle = 'white';
     c.fillRect(0, 0, canvas.width, canvas.height);
 
+    if (keys.d.pressed) {
+        player.velocity.x = 1
+    } else if (keys.a.pressed) {
+        
+    }
     player.draw();
     player.update();
 
