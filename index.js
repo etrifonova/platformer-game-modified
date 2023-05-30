@@ -24,15 +24,11 @@ function animate() {
     c.fillStyle = 'white';
     c.fillRect(0, 0, canvas.width, canvas.height);
 
-    if (keys.d.pressed) {
-        player.velocity.x = 1
-    } else if (keys.a.pressed) {
-        
-    }
+    player.velocity.x = 0;
+    if (keys.d.pressed) player.velocity.x = 5 // if there's only one statement, curly braces aren't necessary
+    else if (keys.a.pressed) player.velocity.x = -5 // if there's only one statement, curly braces aren't necessary
     player.draw();
     player.update();
-
-
 };
 
 animate();
@@ -45,12 +41,11 @@ window.addEventListener('keydown', (event) => {
             break;
         case 'a': 
             // move player to the left
-            player.velocity.x = -4;
+            keys.a.pressed = true;
             break;
         case 'd': 
             // move player to the right
-            player.velocity.x = 4;
-
+            keys.d.pressed = true;
             break;
         }
     }
@@ -60,12 +55,11 @@ window.addEventListener('keyup', (event) => {
     switch (event.key) {
         case 'a': 
             // move player to the left
-            player.velocity.x = 0;
+            keys.a.pressed = false;
             break;
         case 'd': 
             // move player to the right
-            player.velocity.x = 0;
-
+            keys.d.pressed = false;
             break;
         }
     }
