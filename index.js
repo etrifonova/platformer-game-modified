@@ -17,7 +17,11 @@ const backgroundLevel1 = new Sprite({
     imageSrc: './img/backgroundLevel1.png',
 })
 
-const player = new Player();
+const player = new Player({
+    collisionBlocks,
+    // above is a shortcut for collisionBlocks: collisionBlocks - when the property name is the same as the value, we can just put the property name
+    
+});
 const keys = {
     w: {
         pressed: false,
