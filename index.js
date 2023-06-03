@@ -6,6 +6,8 @@ canvas.width = 64 * 16; // 1024
 canvas.height = 64 * 9; // 576
 
 
+const parsedCollisions = collisionsLevel1.parse2D();
+const collisionBlocks = parsedCollisions.createObjectsFrom2D();
 
 const backgroundLevel1 = new Sprite({
     position: {
