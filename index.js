@@ -20,7 +20,8 @@ const backgroundLevel1 = new Sprite({
 const player = new Player({
     collisionBlocks,
     // above is a shortcut for collisionBlocks: collisionBlocks - when the property name is the same as the value, we can just put the property name
-    
+    imageSrc: './img/king/idle.png',
+    frameRate: 11
 });
 const keys = {
     w: {
