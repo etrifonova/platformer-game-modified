@@ -21,7 +21,33 @@ const player = new Player({
     collisionBlocks,
     // above is a shortcut for collisionBlocks: collisionBlocks - when the property name is the same as the value, we can just put the property name
     imageSrc: './img/king/idle.png',
-    frameRate: 11
+    frameRate: 11,
+    animations: {
+        idleRight: {
+            frameRate: 11,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: './img/king/idle.png'
+        },
+        idleLeft: {
+            frameRate: 11,
+            frameBuffer: 2,
+            loop: true,
+            imageSrc: './img/king/idleLeft.png'
+        },
+        runRight: {
+            frameRate: 8,
+            frameBuffer: 4,
+            loop: true,
+            imageSrc: './img/king/runRight.png'
+        },
+        runLeft: {
+            frameRate: 8,
+            frameBuffer: 4,
+            loop: true,
+            imageSrc: './img/king/runLeft.png',
+        }
+    }
 });
 const keys = {
     w: {
@@ -44,8 +70,23 @@ function animate() {
     })
 
     player.velocity.x = 0;
-    if (keys.d.pressed) player.velocity.x = 5 // if there's only one statement, curly braces aren't necessary
-    else if (keys.a.pressed) player.velocity.x = -5 // if there's only one statement, curly braces aren't necessary
+    if (keys.d.pressed) {
+        player.switchSprite('runRight');
+        player.velocity.x = 5 // if there's only one statement, curly braces aren't necessary
+        player.lastDirection = 'right';
+    }
+    else if (keys.a.pressed) {
+        player.switchSprite('runLeft');
+        player.velocity.x = -5 // if there's only one statement, curly braces aren't necessary
+        player.lastDirection = 'left';
+    }
+    else {
+        if (player.lastDirection === 'left') {
+            player.switchSprite('idleLeft');
+        } else {
+            player.switchSprite('idleRight');
+        }
+    }
     player.draw();
     player.update();
 };
