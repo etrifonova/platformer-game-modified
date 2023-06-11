@@ -150,8 +150,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 767,
-            y: 143,
+            x: 177,
+            y: 324
           },
           imageSrc: "./img/doorOpen.png",
           frameRate: 5,
