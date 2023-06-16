@@ -202,7 +202,7 @@ function animate() {
   c.save();
   c.globalAlpha = overlay.opacity;
   // only this transparency above zero for the code between save and restore
-  c.fillStyle = "black";
+  c.fillStyle = "#3f3851";
   c.fillRect(0, 0, canvas.width, canvas.height);
   c.restore();
 }
