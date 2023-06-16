@@ -64,7 +64,7 @@ const player = new Player({
     },
   });
 
-let level = 2;
+let level = 1;
 let levels = {
   1: {
     init: () => {
@@ -168,13 +168,13 @@ let levels = {
 
 
 const keys = {
-  w: {
+  "ArrowUp": {
     pressed: false,
   },
-  a: {
+  "ArrowLeft": {
     pressed: false,
   },
-  d: {
+  "ArrowRight": {
     pressed: false,
   },
 };
