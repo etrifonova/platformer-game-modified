@@ -9,6 +9,8 @@ let parsedCollisions;
 let collisionBlocks;
 let background;
 let doors;
+
+
 const player = new Player({
     imageSrc: "./img/king/idle.png",
     frameRate: 11,
