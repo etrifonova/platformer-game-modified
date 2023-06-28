@@ -1,3 +1,29 @@
+const sfx = {
+    jump: new Howl({
+      src: ['./jump.mp3']
+      // an array to add several file extensions for browser support
+    }),
+    openDoor: new Howl({
+      src: ['./door.mp3']
+    })
+  }
+
+const music = {
+    background: new Howl({
+        src: ['./music.mp3']
+    })
+}
+
+document.querySelector('.sound-on').addEventListener('click', () => {
+    if (!music.background.playing()) {
+        music.background.play();
+    }
+})  
+
+document.querySelector('.sound-off').addEventListener('click', () => {
+        music.background.pause();
+})  
+
 window.addEventListener('keydown', (event) => {
     if (player.preventInput) return;
     switch (event.key) {
@@ -19,12 +45,15 @@ window.addEventListener('keydown', (event) => {
                         player.velocity.x = 0;
                         player.velocity.y = 0;
                         player.preventInput = true;
+                        sfx.openDoor.play();
                         player.switchSprite('enterDoor');
                         door.play();
                         return;
                       }
             }
             if (player.velocity.y === 0) player.velocity.y = -25;
+
+            sfx.jump.play();
             
             break;
         case "ArrowLeft": 
